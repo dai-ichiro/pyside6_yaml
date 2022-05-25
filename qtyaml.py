@@ -1,6 +1,6 @@
-from PyQt6.QtCore import Qt, QSize, pyqtSignal
-from PyQt6.QtWidgets import QLabel, QPushButton, QSlider, QFrame, QGridLayout, QSizePolicy
-from PyQt6.QtGui import QFont
+from PySide6.QtCore import Qt, QSize, Signal
+from PySide6.QtWidgets import QLabel, QPushButton, QSlider, QFrame, QGridLayout, QSizePolicy
+from PySide6.QtGui import QFont
 
 import yaml
 
@@ -50,17 +50,17 @@ class Label(QLabel):
 
                 match settings_dict:
                     case {'shape': 'box', 'shadow': 'plain'}:
-                        self.setFrameStyle(QFrame.Shape.Box.value | QFrame.Shadow.Plain.value)
+                        self.setFrameStyle(QFrame.Shape.Box | QFrame.Shadow.Plain)
                     case {'shape': 'box', 'shadow': 'raised'}:
-                        self.setFrameStyle(QFrame.Shape.Box.value | QFrame.Shadow.Raised.value)
+                        self.setFrameStyle(QFrame.Shape.Box | QFrame.Shadow.Raised)
                     case {'shape': 'box', 'shadow': 'sunken'}:
-                        self.setFrameStyle(QFrame.Shape.Box.value | QFrame.Shadow.Sunken.value)
+                        self.setFrameStyle(QFrame.Shape.Box | QFrame.Shadow.Sunken)
                     case {'shape': 'panel', 'shadow': 'plain'}:
-                        self.setFrameStyle(QFrame.Shape.Panel.value | QFrame.Shadow.Plain.value)
+                        self.setFrameStyle(QFrame.Shape.Panel | QFrame.Shadow.Plain)
                     case {'shape': 'panel', 'shadow': 'raised'}:
-                        self.setFrameStyle(QFrame.Shape.Panel.value | QFrame.Shadow.Raised.value)
+                        self.setFrameStyle(QFrame.Shape.Panel | QFrame.Shadow.Raised)
                     case {'shape': 'panel', 'shadow': 'sunken'}:
-                        self.setFrameStyle(QFrame.Shape.Panel.value | QFrame.Shadow.Sunken.value)
+                        self.setFrameStyle(QFrame.Shape.Panel | QFrame.Shadow.Sunken)
 
                 color_list = []
                 match settings_dict:
@@ -152,7 +152,7 @@ class Slider(QSlider):
 
 class ToggleButton(QFrame):
 
-    clicked = pyqtSignal(bool)
+    clicked = Signal(bool)
 
     def __init__(self, width = 80, height = 140):
         super().__init__()
