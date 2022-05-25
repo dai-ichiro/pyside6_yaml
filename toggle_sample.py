@@ -1,6 +1,6 @@
-from PyQt6.QtCore import pyqtSlot
-from PyQt6.QtWidgets import QWidget, QApplication, QLabel, QHBoxLayout
-from PyQt6.QtGui import QFont
+from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QWidget, QApplication, QLabel, QHBoxLayout
+from PySide6.QtGui import QFont
 
 from qtyaml import ToggleButton
 
@@ -29,7 +29,7 @@ class Window(QWidget):
         
         self.setLayout(mainFrame)
 
-    @pyqtSlot(bool)
+    @Slot(bool)
     def handle_clicked(self, on_off):
         match on_off:
             case True:
