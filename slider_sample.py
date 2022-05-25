@@ -1,5 +1,5 @@
-from PyQt6.QtCore import Qt, QSize
-from PyQt6.QtWidgets import QWidget, QApplication, QVBoxLayout, QSlider, QMainWindow
+from PySide6.QtCore import Qt, QSize
+from PySide6.QtWidgets import QWidget, QApplication, QVBoxLayout, QSlider, QMainWindow
 
 QSS = """
 QSlider::groove:horizontal {
